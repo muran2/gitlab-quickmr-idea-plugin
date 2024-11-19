@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.0.0-SNAPSHOT"
 }
 
-group = "com.github.novotnyr"
+group = "com.github.muran2"
 version = "25-SNAPSHOT"
 
 repositories {
@@ -24,7 +24,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core:2.23.4")
 
     intellijPlatform {
-        intellijIdeaCommunity("2022.3.3")
+        intellijIdeaCommunity("2024.3")
         bundledPlugin("Git4Idea")
         instrumentationTools()
         pluginVerifier()
@@ -43,17 +43,17 @@ intellijPlatform {
             </ul>
         """.trimIndent()
     }
-    publishing {
-        val intellijPublishToken: String by project
-        token = intellijPublishToken
-    }
-    verifyPlugin {
+//    publishing {
+//        val intellijPublishToken: String by project
+//        token = intellijPublishToken
+//    }
+    pluginVerification {
         ides {
             select {
                 types = listOf(IntelliJPlatformType.IntellijIdeaCommunity)
                 channels = listOf(ProductRelease.Channel.RELEASE)
                 sinceBuild = "223"
-                untilBuild = "241.*"
+                untilBuild = "243.*"
             }
         }
     }
@@ -61,6 +61,6 @@ intellijPlatform {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
