@@ -327,7 +327,7 @@ public class SettingsUi implements Configurable {
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
     public String getDisplayName() {
-        return "GitLab Quick Merge Request";
+        return "Muran GitLab Quick Merge Request";
     }
 
     @Nullable

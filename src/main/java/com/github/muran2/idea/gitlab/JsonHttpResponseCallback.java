@@ -1,4 +1,4 @@
-package com.github..idea.gitlab;
+ package com.github.muran2.idea.gitlab;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -16,7 +16,7 @@ import java.net.SocketTimeoutException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import static com.github..idea.gitlab.HttpUtils.assertHasBody;
+import static com.github.muran2.idea.gitlab.HttpUtils.assertHasBody;
 
 public class JsonHttpResponseCallback<T> implements Callback {
     protected final Logger log = Logger.getInstance("#" + JsonHttpResponseCallback.class.getName());
@@ -33,7 +33,7 @@ public class JsonHttpResponseCallback<T> implements Callback {
     }
 
     public JsonHttpResponseCallback(Class<T> resultClass, CompletableFuture<T> result, Gson gson) {
-        this.typeToken = new TypeToken<T>(){}.getType();
+        this.typeToken = new TypeToken<T>(getClass()){}.getType();
         this.result = result;
         this.gson = gson;
     }
@@ -50,7 +50,7 @@ public class JsonHttpResponseCallback<T> implements Callback {
         try(ResponseBody body = response.body()) {
             String json = assertHasBody(response, body).string();
             onRawResponseBody(response, json);
-            Type typeToken = new TypeToken<T>(){}.getType();
+            Type typeToken = new TypeToken<T>(getClass()){}.getType();
             T deserializedJson = this.gson.fromJson(json, typeToken);
             result.complete(handleResponse(response, body, json, deserializedJson));
         } catch (JsonSyntaxException e) {

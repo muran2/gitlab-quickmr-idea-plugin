@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.muran2.gitlab-quickmr-idea-plugin</id>
-    <name>GitLab Quick Merge Request</name>
+    <name>Muran GitLab Quick Merge Request</name>
     <version>RELEASE</version>
     <vendor>Róbert Novotný</vendor>
 
@@ -32,24 +32,29 @@
 
         <vcsConfigurableProvider implementation="com.github.muran2.idea.gitlab.quickmr.settings.SettingsUi$ConfigurableProvider"/>
 
-        <notificationGroup id="GitLab Merge Request" displayType="BALLOON" />
+        <notificationGroup id="GitLab Merge Request" displayType="BALLOON"/>
     </extensions>
 
 
     <actions>
-        <action id="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAction"
-                class="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAction" text="Quick Merge Request">
-            <add-to-group group-id="Git.ContextMenu"/>
-        </action>
-        <action class="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAndAssignToActionGroup" id="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAndAssignToActionGroup">
-            <add-to-group group-id="Git.ContextMenu"/>
-        </action>
-        <action id="com.github.muran2.idea.gitlab.quickmr.AlwaysConfirmCreateMergeRequestAction"
-                class="com.github.muran2.idea.gitlab.quickmr.AlwaysConfirmCreateMergeRequestAction"
-                text="Quick Merge Request..."
-        >
-            <add-to-group group-id="Git.ContextMenu"/>
-        </action>
+        <group id="my.custom.action.group"
+               text="My Custom Action Group"
+               description="A custom group of actions"
+               popup="true">
+            <action id="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAction"
+                    class="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAction" text="Quick Merge Request">
+                <add-to-group group-id="Git.ContextMenu"/>
+            </action>
+            <action class="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAndAssignToActionGroup" id="com.github.muran2.idea.gitlab.quickmr.CreateMergeRequestAndAssignToActionGroup">
+                <add-to-group group-id="Git.ContextMenu"/>
+            </action>
+            <action id="com.github.muran2.idea.gitlab.quickmr.AlwaysConfirmCreateMergeRequestAction"
+                    class="com.github.muran2.idea.gitlab.quickmr.AlwaysConfirmCreateMergeRequestAction"
+                    text="Quick Merge Request..."
+            >
+                <add-to-group group-id="Git.ContextMenu"/>
+            </action>
+        </group>
     </actions>
 
 </idea-plugin>

@@ -35,7 +35,7 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "223"
-            untilBuild = "241.*"
+            untilBuild = "243.*"
         }
         changeNotes = """
             <ul>
@@ -62,5 +62,11 @@ intellijPlatform {
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks {
+    buildPlugin {
+        // Config for the output .zip file containing the .jar
     }
 }

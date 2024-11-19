@@ -14,7 +14,7 @@ Using the plug-in
 ### Configure Project Settings 
 
 First, configure the project settings in
-**Preferences | Version Control | GitLab Quick Merge Request**.
+**Preferences | Version Control | Muran GitLab Quick Merge Request**.
 
 ### GitLab URL and GitLab REST Access Token 
 
