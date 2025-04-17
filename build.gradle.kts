@@ -35,7 +35,7 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "223"
-            untilBuild = "243.*"
+            untilBuild = "343.*"
         }
         changeNotes = """
             <ul>
@@ -53,7 +53,7 @@ intellijPlatform {
                 types = listOf(IntelliJPlatformType.IntellijIdeaCommunity)
                 channels = listOf(ProductRelease.Channel.RELEASE)
                 sinceBuild = "223"
-                untilBuild = "243.*"
+                untilBuild = "343.*"
             }
         }
     }
